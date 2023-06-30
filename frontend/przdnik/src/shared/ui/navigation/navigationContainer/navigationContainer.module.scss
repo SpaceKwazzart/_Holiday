@@ -1,0 +1,10 @@
+.nav {
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--color-content-bg);
+}
+
+.list {
+  list-style-type: none;
+}
