@@ -1,18 +1,10 @@
-import { MainLayout } from "shared/ui";
-import { Sidebar } from "widgets/sidebar/ui";
+import Layout from "./layout";
 
 const LoadingPage = () => {
   return (
-    <>
-    <MainLayout
-    sidebar={
-    <Sidebar/>
-    }
-    header={<div>Header</div>}
-    >
-      <h1>Loading...</h1>
-    </MainLayout>
-    </>
+    <Layout>
+      <h1>LOADING...</h1>
+    </Layout>
   );
 };
 

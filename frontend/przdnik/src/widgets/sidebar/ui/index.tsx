@@ -1,32 +1,13 @@
 import { SidebarLayout } from 'shared/ui';
-import { NavigationContainer } from '../../../shared/ui/navigation/navigationContainer/index';
-import { NavigationRow } from '../../../shared/ui/navigation/navigationRow/index';
-import { FiHome, FiSearch, FiColumns, FiCalendar } from "react-icons/fi";
+import { VerticalPagesNavigation } from 'widgets/pagesNavigation';
 import style from './sidebar.module.scss';
+import { FeedbackBlock } from '../../feedbackBlock/index';
 
 export const Sidebar = () => {
-  const iconSize = 28;
 
   return (
     <SidebarLayout>
-      <NavigationContainer classname={`${style.sidebarElement} ${style.navElement}`}>
-        <NavigationRow link='/'>
-          <FiHome size={iconSize}/>
-          <p>Home</p> 
-        </NavigationRow>
-        <NavigationRow link='/search'>
-          <FiSearch size={iconSize}/>
-        <p>Search</p> 
-        </NavigationRow>
-        <NavigationRow link='/collection'>
-          <FiColumns size={iconSize}/>
-        <p>Collection</p> 
-        </NavigationRow>
-        <NavigationRow link='/calendar'>
-          <FiCalendar size={iconSize}/>
-        <p>Calendar</p> 
-        </NavigationRow>
-      </NavigationContainer>
+      <VerticalPagesNavigation iconSize={28}/>
 
       <div className={style.sidebarElement}>
         Создать коллекцию праздников +
@@ -39,7 +20,7 @@ export const Sidebar = () => {
       </div>
 
       <footer className={`${style.sidebarElement} ${style.footer}`}>
-        Оставить feedback молодому продукту :3
+        <FeedbackBlock/>
       </footer>
     </SidebarLayout>
   );

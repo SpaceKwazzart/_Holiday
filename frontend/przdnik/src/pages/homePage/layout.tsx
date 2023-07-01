@@ -1,18 +1,24 @@
-import { MainLayout } from "shared/ui";
 import { Header } from "widgets/header";
 import { Sidebar } from "widgets/sidebar/ui";
+import { MainLayout } from "shared/ui";
 
-const SearchPage = () => {
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({
+  children,
+}) => {
   return (
     <>
     <MainLayout
     sidebar={<Sidebar/>}
     header={<Header/>}
     >
-      <h1>Search Page!</h1>
+      {children}
     </MainLayout>
     </>
   );
-};
-
-export default SearchPage;
+}
+ 
+export default Layout;

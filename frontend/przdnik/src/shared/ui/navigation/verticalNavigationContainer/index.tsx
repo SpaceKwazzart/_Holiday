@@ -1,12 +1,12 @@
 import React from 'react';
-import style from './navigationContainer.module.scss';
+import style from './verticalNavigationContainer.module.scss';
 
-interface NavigationProps {
+interface VerticalNavigationContainerProps {
   children: React.ReactNode | React.ReactNode[];
   classname?: string;
 }
 
-export const NavigationContainer: React.FC<NavigationProps> = ({
+export const VerticalNavigationContainer: React.FC<VerticalNavigationContainerProps> = ({
   children,
   classname,
 }) => {

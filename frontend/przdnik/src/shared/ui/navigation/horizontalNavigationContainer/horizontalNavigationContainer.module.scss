@@ -1,0 +1,22 @@
+.nav {
+  background-color: var(--color-content-bg);
+}
+
+.list {
+  display: flex;
+  width: 100px;
+  align-items: center;
+}
+
+.list > div {
+  padding: 0.1rem 0.5rem;
+  display: inline-flex;
+  margin: 0 auto;
+  list-style-type: none;
+
+  & > * {
+    max-width: 150px;
+  }
+
+
+}

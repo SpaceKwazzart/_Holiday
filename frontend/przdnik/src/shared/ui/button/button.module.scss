@@ -1,0 +1,17 @@
+.button {
+  padding: 0.4rem;
+  border: 0;
+  transition: 1s;
+  cursor: pointer;
+  font-weight: bolder;
+  color: var(--color-text);
+  outline: 1px solid var(--color-bg);
+  background-color: var(--color-secondary);
+  opacity: 1;
+
+  &:hover {
+    opacity: 0.5;
+    outline: 1px solid var(--color-text);
+  }
+}
+

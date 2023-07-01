@@ -1,18 +1,10 @@
-import { MainLayout } from "shared/ui";
-import { Sidebar } from "widgets/sidebar/ui";
+import Layout from "./layout";
 
 const HomePage = () => {
   return (
-    <>
-    <MainLayout
-    sidebar={
-    <Sidebar/>
-    }
-    header={<div>Header</div>}
-    >
+    <Layout>
       <h1>Home Page!</h1>
-    </MainLayout>
-    </>
+    </Layout>
   );
 };
 
