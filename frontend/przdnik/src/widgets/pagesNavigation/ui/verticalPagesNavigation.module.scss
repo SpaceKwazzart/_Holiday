@@ -1,0 +1,19 @@
+.container {
+  padding: 0.1rem;
+
+  & > * > * > * > * {
+    display: flex;
+    justify-content: flex-start;
+
+    & > * {
+      &:first-child {
+        margin: 0;
+        margin-right: 10px;
+      }
+  
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}

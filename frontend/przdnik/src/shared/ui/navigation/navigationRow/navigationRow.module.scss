@@ -1,6 +1,7 @@
 .row {
   width: 100%;
-  display: inline-flex;
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
   text-decoration: none;
   font-size: 0.8rem;
@@ -17,9 +18,5 @@
   &.active {
     background-color: var(--color-primary);
     color: var(--color-bg);
-  }
-
-  & > * {
-    margin-right: 0.7rem;
   }
 }

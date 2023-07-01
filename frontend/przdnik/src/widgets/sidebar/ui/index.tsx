@@ -2,6 +2,7 @@ import { SidebarLayout } from 'shared/ui';
 import { VerticalPagesNavigation } from 'widgets/pagesNavigation';
 import style from './sidebar.module.scss';
 import { FeedbackBlock } from '../../feedbackBlock/index';
+import { CollectionBlock } from '../../collectionBlock/index';
 
 export const Sidebar = () => {
 
@@ -9,11 +10,8 @@ export const Sidebar = () => {
     <SidebarLayout>
       <VerticalPagesNavigation iconSize={28}/>
 
-      <div className={style.sidebarElement}>
-        Создать коллекцию праздников +
-        Мои коллекции
-      </div>
-
+      <CollectionBlock/>
+      
       <div className={style.sidebarElement}>
         Подпишись на крутые коллекции прадзников!
         Обзор

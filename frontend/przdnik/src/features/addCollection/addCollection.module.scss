@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  align-items: center;
+  padding: 0.4rem;
+  background-color: var(--color-content-bg);
+
+  .button {
+    margin-left: auto;
+  }
+}

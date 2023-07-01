@@ -1,14 +1,13 @@
 import { HeaderLayout } from "shared/ui/headerLayout";
 import style from './header.module.scss';
 import { HorizontalPagesNavigation } from "widgets/pagesNavigation";
+import { FiUser } from "react-icons/fi";
 
 export const Header = () => {
   return (
     <HeaderLayout classname={style.header}>
-      <h3>Header</h3>
       <HorizontalPagesNavigation iconSize={28}/>
-      <h3>Profile</h3>
+      <FiUser className={style.avatar} size={28}/>
     </HeaderLayout>
   );
 }
- 

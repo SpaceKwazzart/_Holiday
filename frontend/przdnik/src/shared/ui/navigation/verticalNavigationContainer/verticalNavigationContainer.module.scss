@@ -1,10 +1,12 @@
 .nav {
-  display: inline-flex;
-  flex-direction: column;
-  width: 100%;
   background-color: var(--color-content-bg);
 }
 
-.list {
+.list div{
+  width: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   list-style-type: none;
 }
