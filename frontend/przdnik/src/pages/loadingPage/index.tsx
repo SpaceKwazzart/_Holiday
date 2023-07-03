@@ -1,10 +1,6 @@
-import Layout from "./layout";
-
 const LoadingPage = () => {
-  return (
-    <Layout>
-      <h1>LOADING...</h1>
-    </Layout>
+  return (    
+    <h1>LOADING...</h1>
   );
 };
 

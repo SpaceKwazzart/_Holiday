@@ -1,6 +1,6 @@
 import { Row } from "shared/ui";
-import style from './collectionRow.module.scss';
 import React from "react";
+import style from './collectionRow.module.scss';
 
 interface CollectionRowProps {
   children: React.ReactNode;

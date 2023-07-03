@@ -11,11 +11,6 @@ export const Sidebar = () => {
       <VerticalPagesNavigation iconSize={28}/>
 
       <CollectionBlock/>
-      
-      <div className={style.sidebarElement}>
-        Подпишись на крутые коллекции прадзников!
-        Обзор
-      </div>
 
       <footer className={`${style.sidebarElement} ${style.footer}`}>
         <FeedbackBlock/>

@@ -1,8 +1,8 @@
 import { SidebarBlockLayout } from "shared/ui";
-// import style from './collectionBlock.module.scss';
 import AddCollection from '../../features/addCollection/index';
 import { InspectCollection } from "features/inspectCollection";
 import { CollectionRow } from "entities/collection";
+import style from './collectionBlock.module.scss';
 
 const mockRows = [
   {
@@ -41,9 +41,11 @@ export const CollectionBlock = () => {
   return (
     <SidebarBlockLayout>
       <AddCollection/>
+      <div className={style.collectionContainer}>
       {mockRows.map(item => {
-        return <CollectionRow features={<InspectCollection collectionId={item.id}/>} collectionId={item.id} >item.name</CollectionRow>
+        return <CollectionRow key={item.id} features={<InspectCollection collectionId={item.id}/>} collectionId={item.id} >{item.name}</CollectionRow>
       })}
+      </div>
     </SidebarBlockLayout>
   );
 }
