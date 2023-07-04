@@ -1,5 +1,5 @@
 import { SidebarBlockLayout } from "shared/ui";
-import AddCollection from '../../features/addCollection/index';
+import AddCollection from 'features/addCollection/index';
 import { InspectCollection } from "features/inspectCollection";
 import { CollectionRow } from "entities/collection";
 import style from './collectionBlock.module.scss';
@@ -30,14 +30,9 @@ const mockRows = [
     name: "Collection 5",
     order: 5,
   },
-  {
-    id: 6,
-    name: "Collection 6",
-    order: 6,
-  },
 ]
 
-export const CollectionBlock = () => {
+export const CreateCollectionBlock = () => {
   return (
     <SidebarBlockLayout>
       <AddCollection/>

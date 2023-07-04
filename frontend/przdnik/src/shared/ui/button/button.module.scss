@@ -5,13 +5,13 @@
   cursor: pointer;
   font-weight: bolder;
   color: var(--color-text);
-  outline: 1px solid var(--color-bg);
   background-color: var(--color-secondary);
   opacity: 1;
+  outline: 2px solid var(--color-bg);
 
   &:hover {
     opacity: 0.5;
-    outline: 1px solid var(--color-text);
+    outline: 2px solid var(--color-text);
   }
 }
 

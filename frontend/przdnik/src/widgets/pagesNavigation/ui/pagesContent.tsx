@@ -1,5 +1,5 @@
 import { NavigationRow } from '../../../shared/ui/navigation/navigationRow/index';
-import { FiColumns, FiCalendar, FiHome, FiSearch } from "react-icons/fi";
+import { FiColumns, FiCalendar, FiHome, FiSearch, FiUser } from "react-icons/fi";
 import style from './pagesContent.module.scss';
 
 interface PagesContentProps {
@@ -29,6 +29,11 @@ export const PagesContent: React.FC<PagesContentProps>  = ({
       <NavigationRow link='/calendar'>
         <FiCalendar size={iconSize}/>
         <p>Calendar</p>
+      </NavigationRow>
+
+      <NavigationRow link='/profile'>
+        <FiUser size={iconSize}/>
+        <p>Profile</p>
       </NavigationRow>
     </div>
   );

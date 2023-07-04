@@ -1,10 +1,7 @@
 import { type BaseQueryFn } from '@reduxjs/toolkit/dist/query/baseQueryTypes'
-import {
-  type FetchArgs,
-  type FetchBaseQueryError,
-  type FetchBaseQueryMeta,
-} from '@reduxjs/toolkit/dist/query/fetchBaseQuery'
+import { type FetchArgs, type FetchBaseQueryError, type FetchBaseQueryMeta, } from '@reduxjs/toolkit/dist/query/fetchBaseQuery'
 import { fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { BASE_URL } from 'shared/config/api'
 
 export const baseQuery: BaseQueryFn<
   string | FetchArgs,
@@ -13,5 +10,5 @@ export const baseQuery: BaseQueryFn<
   {},
   FetchBaseQueryMeta
 > = fetchBaseQuery({
-  baseUrl: "/",
+  baseUrl: BASE_URL,
 })

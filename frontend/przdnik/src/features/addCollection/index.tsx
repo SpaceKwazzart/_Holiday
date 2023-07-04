@@ -1,4 +1,4 @@
-import { Button } from '../../shared/ui';
+import { Button } from 'shared/ui';
 import { FiPlus } from "react-icons/fi";
 import style from './addCollection.module.scss';
 

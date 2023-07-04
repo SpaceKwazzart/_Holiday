@@ -1,8 +1,26 @@
 .header {
   padding: 0.4rem;
-  background-color: var(--color-content-bg);
+  background-color: var(--color-content-bg)
 }
 
-.avatar {
+.search {
+  min-width: 320px;
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.mobileNav {
+  margin: 0 auto;
+}
+
+.loginContainer {
   margin-left: auto;
+  margin-right: 0.4rem;
+  & > * {
+    margin: 0 0.2rem;
+  }
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
