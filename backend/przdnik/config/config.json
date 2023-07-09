@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "przdnik",
+    "password": "password",
+    "database": "development_przdnik",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "przdnik",
+    "password": "password",
+    "database": "test_przdnik",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "przdnik",
+    "password": "password",
+    "database": "production_przdnik",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}
