@@ -1,2 +1,5 @@
 backend/przdnik/node_modules
+backend/przdnik/src/.env
+
+
 frontend/przdnik/node_modules
