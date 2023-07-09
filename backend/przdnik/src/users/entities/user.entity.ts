@@ -1,11 +1,7 @@
-import { Table, Column, Model, DataType } from 'sequelize-typescript';
-import { IUser } from './user.interface';
-
-interface UserCreationAttrs {
-  name: string;
-  email: string;
-  password: string;
-}
+import { Holiday } from 'src/holidays/entity/holiday.entity';
+import { IUser, UserCreationAttrs } from './user.interface';
+import { Table, Column, Model, DataType, HasMany } from 'sequelize-typescript';
+import { Collection } from 'src/collections/entity/collection.entity';
 
 @Table({ tableName: 'user' })
 export class User extends Model<User, UserCreationAttrs> implements IUser {
@@ -46,4 +42,10 @@ export class User extends Model<User, UserCreationAttrs> implements IUser {
     allowNull: true,
   })
   avatar: string;
+
+  @HasMany(() => Holiday)
+  holidaysCreated: Holiday[];
+
+  @HasMany(() => Collection)
+  collectionsCreated: Collection[];
 }

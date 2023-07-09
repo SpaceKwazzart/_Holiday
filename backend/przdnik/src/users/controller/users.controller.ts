@@ -1,9 +1,9 @@
 import { USER_SERVICE } from 'src/shared/constants';
 import { HttpException, UseGuards } from '@nestjs/common';
 import { Controller, Get, Param, Inject } from '@nestjs/common';
-import { GetUserDto } from '../dto/getUser.dto';
 import { IUserService } from '../service/service.interface';
 import { AuthGuard } from '@nestjs/passport';
+import { UserWithoutPassword } from '../entities/user.interface';
 
 @UseGuards(AuthGuard('jwt'))
 @Controller('users')
@@ -12,15 +12,14 @@ export class UserController {
     @Inject(USER_SERVICE) private readonly userService: IUserService,
   ) {}
 
+  @UseGuards(AuthGuard('jwt'))
   @Get(':id')
-  async getUserByid(@Param('id') id: number) {
+  async getUserByid(@Param('id') id: number): Promise<UserWithoutPassword> {
     try {
       const user = await this.userService.findUserById(id);
-      const dto: GetUserDto = {
-        name: user.name,
-        email: user.email,
-      };
-      return dto;
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { password, ...userWithNoPassword } = user['dataValues'];
+      return userWithNoPassword;
     } catch (error) {
       throw new HttpException('Bad request', 400);
     }

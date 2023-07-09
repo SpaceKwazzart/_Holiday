@@ -7,14 +7,14 @@ import {
   Body,
 } from '@nestjs/common';
 import { AUTH_SERVICE } from 'src/shared/constants';
-import { AuthService } from '../service/auth.service';
 import { AuthGuard } from '@nestjs/passport';
 import { CreateUserDto } from 'src/users/dto/createUser.dto';
 import { DoesUserExist } from '../../users/guards/doesUserExist.guard';
+import { IAuthService } from '../service/service.interface';
 
 @Controller('auth')
 export class AuthController {
-  constructor(@Inject(AUTH_SERVICE) private authService: AuthService) {}
+  constructor(@Inject(AUTH_SERVICE) private authService: IAuthService) {}
 
   @UseGuards(AuthGuard('local'))
   @Post('login')
