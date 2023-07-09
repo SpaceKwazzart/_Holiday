@@ -1,7 +1,17 @@
-import { Holiday } from 'src/holidays/entity/holiday.entity';
 import { IUser, UserCreationAttrs } from './user.interface';
-import { Table, Column, Model, DataType, HasMany } from 'sequelize-typescript';
+import { ICollection } from 'src/collections/entity/collection.interface';
+import { IHoliday } from 'src/holidays/entity/holiday.interface';
+import { Holiday } from 'src/holidays/entity/holiday.entity';
 import { Collection } from 'src/collections/entity/collection.entity';
+import { UserCollection } from './userCollection.entity';
+import {
+  Table,
+  Column,
+  Model,
+  DataType,
+  HasMany,
+  BelongsToMany,
+} from 'sequelize-typescript';
 
 @Table({ tableName: 'user' })
 export class User extends Model<User, UserCreationAttrs> implements IUser {
@@ -44,8 +54,11 @@ export class User extends Model<User, UserCreationAttrs> implements IUser {
   avatar: string;
 
   @HasMany(() => Holiday)
-  holidaysCreated: Holiday[];
+  holidaysCreated: IHoliday[];
 
   @HasMany(() => Collection)
-  collectionsCreated: Collection[];
+  collectionsCreated: ICollection[];
+
+  @BelongsToMany(() => Collection, () => UserCollection)
+  holidaysSubscribe: ICollection[];
 }

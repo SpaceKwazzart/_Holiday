@@ -5,6 +5,7 @@ import { User } from '../users/entities/user.entity';
 import { Holiday } from 'src/holidays/entity/holiday.entity';
 import { Collection } from 'src/collections/entity/collection.entity';
 import { CollectionHoliday } from 'src/collections/entity/collectionHoliday.entity';
+import { UserCollection } from 'src/users/entities/userCollection.entity';
 
 export const databaseProviders = [
   {
@@ -25,7 +26,13 @@ export const databaseProviders = [
           config = databaseConfig.development;
       }
       const sequelize = new Sequelize(config);
-      sequelize.addModels([User, Holiday, Collection, CollectionHoliday]);
+      sequelize.addModels([
+        User,
+        Holiday,
+        Collection,
+        CollectionHoliday,
+        UserCollection,
+      ]);
       await sequelize.sync();
       return sequelize;
     },

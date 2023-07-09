@@ -14,4 +14,5 @@ export interface ICollection {
   creatorId: number;
   creator: IUser;
   holidays: IHoliday[];
+  subscribers: IUser[];
 }
