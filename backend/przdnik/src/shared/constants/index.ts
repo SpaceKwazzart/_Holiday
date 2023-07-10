@@ -4,6 +4,8 @@ export const DEVELOPMENT = 'development';
 export const TEST = 'test';
 export const PRODUCTION = 'production';
 
+export const BASIC_COLLECTION_NAME = 'Basic Holidays';
+
 export const USER_REPOSITORY = 'USER_REPOSITORY';
 export const USER_SERVICE = 'USER_SERVICE';
 

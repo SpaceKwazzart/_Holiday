@@ -2,8 +2,8 @@ import { HolidayCreationAttrs } from '../entity/holiday.interface';
 
 export class CreateHolidayDto implements HolidayCreationAttrs {
   readonly name: string;
-  readonly dateStart: Date;
-  readonly dateEnd: Date;
+  readonly dateStart: string;
+  readonly dateEnd: string;
   readonly creatorId: number;
-  readonly collectionId?: number;
+  collectionId?: number;
 }

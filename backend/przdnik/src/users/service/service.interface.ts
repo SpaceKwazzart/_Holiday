@@ -10,7 +10,11 @@ export interface IUserService {
 
   findUserByEmail: (email: Email) => Promise<User>;
 
+  getAdmins: () => Promise<User[]>;
+
   createUser: (
     createUserDto: CreateUserDto,
   ) => Promise<{ user: User; collection: Collection }>;
+
+  createDefaultAdmin: (createUserDto: CreateUserDto) => Promise<void>;
 }

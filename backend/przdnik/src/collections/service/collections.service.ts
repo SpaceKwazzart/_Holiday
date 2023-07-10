@@ -12,6 +12,14 @@ export class CollectionService implements ICollectionService {
     private readonly collectionRepository: typeof Collection,
   ) {}
 
+  async findCollectionByName(name: string): Promise<Collection> {
+    return await this.collectionRepository.findOne({ where: { name } });
+  }
+
+  async findCollectionById(id: number): Promise<Collection> {
+    return await this.collectionRepository.findByPk(id);
+  }
+
   async createCollection(
     createCollectionDto: CreateCollectionDto,
   ): Promise<Collection> {

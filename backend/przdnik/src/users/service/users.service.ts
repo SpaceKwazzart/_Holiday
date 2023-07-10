@@ -1,12 +1,17 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
 
 import { User } from '../entities/user.entity';
-import { COLLECTION_SERVICE, USER_REPOSITORY } from 'src/shared/constants';
+import {
+  BASIC_COLLECTION_NAME,
+  COLLECTION_SERVICE,
+  USER_REPOSITORY,
+} from 'src/shared/constants';
 import { IUserService } from './service.interface';
 import { CreateUserDto } from '../dto/createUser.dto';
 import { ICollectionService } from 'src/collections/service/service.interface';
 import { Holiday } from 'src/holidays/entity/holiday.entity';
 import { Collection } from 'src/collections/entity/collection.entity';
+import { AccessStatus } from 'src/shared/types';
 
 @Injectable()
 export class UserService implements IUserService {
@@ -57,6 +62,10 @@ export class UserService implements IUserService {
     });
   }
 
+  async getAdmins(): Promise<User[]> {
+    return await this.userRepository.findAll({ where: { isAdmin: true } });
+  }
+
   async createUser(
     createUserDto: CreateUserDto,
   ): Promise<{ user: User; collection: Collection }> {
@@ -71,5 +80,21 @@ export class UserService implements IUserService {
     user.$set('collectionsCreated', [collection.id]);
     user.collectionsCreated = [collection];
     return { user, collection };
+  }
+
+  async createDefaultAdmin(createUserDto: CreateUserDto): Promise<void> {
+    const checkAdminExists = await this.findUserByName(createUserDto.name);
+    if (checkAdminExists) {
+      return Promise.resolve();
+    }
+    const { user, collection } = await this.createUser(createUserDto);
+    user.isAdmin = true;
+    user.isApproved = true;
+
+    collection.name = BASIC_COLLECTION_NAME;
+    collection.accessStatus = AccessStatus.Public;
+
+    await user.save();
+    await collection.save();
   }
 }

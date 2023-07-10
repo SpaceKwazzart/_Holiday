@@ -5,7 +5,7 @@ import { Holiday } from './entity/holiday.entity';
 export const holidaysProviders = [
   {
     provide: HOLIDAY_REPOSITORY,
-    useClass: Holiday,
+    useValue: Holiday,
   },
   {
     provide: HOLIDAY_SERVICE,

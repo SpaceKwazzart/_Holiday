@@ -25,16 +25,16 @@ export class Holiday
   name: string;
 
   @Column({
-    type: DataType.DATE,
+    type: DataType.STRING,
     allowNull: false,
   })
-  dateStart: Date;
+  dateStart: string;
 
   @Column({
-    type: DataType.DATE,
+    type: DataType.STRING,
     allowNull: false,
   })
-  dateEnd: Date;
+  dateEnd: string;
 
   @Column({
     type: DataType.TEXT,
