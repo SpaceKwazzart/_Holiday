@@ -1,4 +1,4 @@
-import { IUser } from 'src/users/entities/user.interface';
+import { User } from 'src/users/entities/user.entity';
 
 export interface HolidayCreationAttrs {
   name: string;
@@ -13,7 +13,6 @@ export interface IHoliday {
   dateStart: Date;
   dateEnd: Date;
   creatorId: number;
-  creator: IUser;
+  creator: User;
   description: string;
-  isCommunityBased: boolean;
 }

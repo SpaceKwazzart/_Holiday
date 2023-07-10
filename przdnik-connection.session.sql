@@ -1,1 +1,1 @@
-SELECT * FROM "user_collection"
+SELECT * FROM "collection"

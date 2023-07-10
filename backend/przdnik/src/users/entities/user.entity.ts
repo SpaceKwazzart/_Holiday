@@ -1,6 +1,4 @@
 import { IUser, UserCreationAttrs } from './user.interface';
-import { ICollection } from 'src/collections/entity/collection.interface';
-import { IHoliday } from 'src/holidays/entity/holiday.interface';
 import { Holiday } from 'src/holidays/entity/holiday.entity';
 import { Collection } from 'src/collections/entity/collection.entity';
 import { UserCollection } from './userCollection.entity';
@@ -42,6 +40,13 @@ export class User extends Model<User, UserCreationAttrs> implements IUser {
   isApproved: boolean;
 
   @Column({
+    type: DataType.BOOLEAN,
+    defaultValue: false,
+    allowNull: false,
+  })
+  isAdmin: boolean;
+
+  @Column({
     type: DataType.DATE,
     allowNull: true,
   })
@@ -54,11 +59,11 @@ export class User extends Model<User, UserCreationAttrs> implements IUser {
   avatar: string;
 
   @HasMany(() => Holiday)
-  holidaysCreated: IHoliday[];
+  holidaysCreated: Holiday[];
 
   @HasMany(() => Collection)
-  collectionsCreated: ICollection[];
+  collectionsCreated: Collection[];
 
   @BelongsToMany(() => Collection, () => UserCollection)
-  holidaysSubscribe: ICollection[];
+  collectionsSubscribe: Collection[];
 }

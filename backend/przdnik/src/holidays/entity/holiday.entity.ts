@@ -9,7 +9,6 @@ import {
 } from 'sequelize-typescript';
 import { HolidayCreationAttrs, IHoliday } from './holiday.interface';
 import { User } from 'src/users/entities/user.entity';
-import { IUser } from 'src/users/entities/user.interface';
 import { CollectionHoliday } from 'src/collections/entity/collectionHoliday.entity';
 import { Collection } from 'src/collections/entity/collection.entity';
 import { AccessStatus } from 'src/shared/types';
@@ -50,13 +49,6 @@ export class Holiday
   })
   accessStatus: AccessStatus;
 
-  @Column({
-    type: DataType.BOOLEAN,
-    allowNull: false,
-    defaultValue: false,
-  })
-  isCommunityBased: boolean;
-
   @ForeignKey(() => User)
   @Column({
     type: DataType.INTEGER,
@@ -65,7 +57,7 @@ export class Holiday
   creatorId: number;
 
   @BelongsTo(() => User)
-  creator: IUser;
+  creator: User;
 
   @BelongsToMany(() => Collection, () => CollectionHoliday)
   collections: Collection[];

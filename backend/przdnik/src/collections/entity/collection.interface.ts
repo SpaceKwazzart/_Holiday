@@ -1,6 +1,6 @@
-import { IHoliday } from 'src/holidays/entity/holiday.interface';
+import { Holiday } from 'src/holidays/entity/holiday.entity';
 import { AccessStatus } from 'src/shared/types';
-import { IUser } from 'src/users/entities/user.interface';
+import { User } from 'src/users/entities/user.entity';
 
 export interface CollectionCreationAttrs {
   name: string;
@@ -10,9 +10,8 @@ export interface CollectionCreationAttrs {
 export interface ICollection {
   name: string;
   accessStatus: AccessStatus;
-  isCommunityBased: boolean;
   creatorId: number;
-  creator: IUser;
-  holidays: IHoliday[];
-  subscribers: IUser[];
+  creator: User;
+  holidays: Holiday[];
+  subscribers: User[];
 }

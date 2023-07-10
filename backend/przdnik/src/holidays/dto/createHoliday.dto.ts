@@ -5,4 +5,5 @@ export class CreateHolidayDto implements HolidayCreationAttrs {
   readonly dateStart: Date;
   readonly dateEnd: Date;
   readonly creatorId: number;
+  readonly collectionId?: number;
 }
