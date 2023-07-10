@@ -1,4 +1,4 @@
-import { Injectable, Inject } from '@nestjs/common';
+import { Injectable, Inject, HttpException, HttpStatus } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 
 import * as bcrypt from 'bcrypt';
@@ -12,6 +12,8 @@ import { UserWithoutPassword } from 'src/users/entities/user.interface';
 import { IAuthService } from './service.interface';
 import { Email } from 'src/shared/types';
 import { CreateUserDto } from 'src/users/dto/createUser.dto';
+import { Collection } from 'src/collections/entity/collection.entity';
+import { User } from 'src/users/entities/user.entity';
 
 @Injectable()
 export class AuthService implements IAuthService {
@@ -48,22 +50,24 @@ export class AuthService implements IAuthService {
     return { user, token };
   }
 
-  public async createUser(
-    createUserDto: CreateUserDto,
-  ): Promise<{ user: UserWithoutPassword; token: string }> {
+  public async createUser(createUserDto: CreateUserDto): Promise<{
+    user: User;
+    token: string;
+    collection: Collection;
+  }> {
     const pass = await this.hashPassword(createUserDto.password);
 
-    const newUser = await this.userService.createUser({
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { user, collection } = await this.userService.createUser({
       ...createUserDto,
       password: pass,
     });
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { password, ...result } = newUser['dataValues'];
-
+    const { password, ...result } = user['dataValues'];
     const token = await this.generateToken(result);
 
-    return { user: result, token };
+    return { user, token, collection };
   }
 
   // Private methods
